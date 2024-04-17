@@ -122,6 +122,7 @@ class MainWindow(QMainWindow):
     def stopmiu(self):
         self.aus = False
         self.messung.finish()
+        self.messung = None
         self.finished(True, 'Manually stopped')
 
     def show_plot(self):
@@ -156,6 +157,8 @@ class PlotWindow(QMainWindow):
         x_data = x_data.tolist()
         y_data = y_data.tolist()
         self.lines.set_data(x_data, y_data)
+        self.ax.set_xlabel('U, V')
+        self.ax.set_ylabel('I, A')
         self.canvas.draw()
         self.show()
 

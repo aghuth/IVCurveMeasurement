@@ -86,8 +86,8 @@ class Session(threading.Thread):
                 self.smu.setup_for_IV_measurement(self.iLimit, self.NPLC)
                 self.smu.level_v = levelv
                 break
-            i = float(values[1])
-            v = float(values[0])
+            v = float(values[1])
+            i = float(values[0])
             if self.file:
                 f.writelines([str(v), '\t', str(i), '\n'])
             self.data.append([v, i])
